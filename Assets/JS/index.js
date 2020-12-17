@@ -1,6 +1,9 @@
 $(document).ready(function () {
 
-
+  $("#search-form").on("submit", function(event){
+    event.preventDefault();
+    searchTerm = $("")
+  });
 
   console.log("The document is ready!");
   const settings = {
