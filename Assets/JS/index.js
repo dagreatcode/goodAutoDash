@@ -2,12 +2,21 @@ $(document).ready(function () {
   console.log("The document is ready!");
 
   var searchTerm;
+  
+  var codeD = $("#code-display");
+  var causeD =  $("#cause-display");
+  var definitionD = $("#definition-display");
+  var searchBtn =  $("#search-button");
+  var inputC =  $("#input-control");
+  // var odbCode = "P0001";
+
 
   function apiCall(){
+    console.log("api Call");
     const settings = {
       async: true,
       crossDomain: true,
-      url: "https://car-code.p.rapidapi.com/obd2/P0001",
+      url: "https://car-code.p.rapidapi.com/obd2/" + odbCode,
       method: "GET",
       headers: {
         "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
@@ -22,16 +31,27 @@ $(document).ready(function () {
       console.log(response.code);
       console.log(response.cause);
       console.log(response.definition);
+
+      codeD.text(response.code);
+      causeD.text(response.cause);
+      definitionD.text(response.definition);
+      searchBtn.attr("disabled", false);
+     
+      
   
-      $("#code-display").text(response.code);
-      $("#cause-display").text(response.cause);
-      $("#definition-display").text(response.definition);
+      // $("#code-display").text(response.code);
+      // $("#cause-display").text(response.cause);
+      // $("#definition-display").text(response.definition);
+      // $("#search-button").attr("disabled", false);
+
     });
   }
 
   $("#search-form").on("submit", function(event){
     event.preventDefault();
-    searchTerm = $("#specificSizeInputName").val();
+    searchBtn.attr("disabled", true);
+    searchTerm = inputC.val();
+    odbCode = inputC.val();
     if (searchTerm){
       apiCall();
     }else{
