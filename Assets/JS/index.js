@@ -23,6 +23,7 @@ $(document).ready(function () {
   var msgD = $("#msg-display");
   var regionD = $("#region-name");
   var submitBtn = $("#submit-button");
+  // var allD = $("all-data");
 
   var inputC3 = $("#input-control3");
   var brandN = $("#brand-name");
@@ -81,19 +82,18 @@ $(document).ready(function () {
     };
 
     $.ajax(settings).done(function (response) {
-      console.log(response.data.AirBagLocCurtain);
       // // console.log(response.brandName);
-      // // console.log(response.data);
+      console.log(response.data);
       // // console.log(response);
       brandD.text(response.brandName);
       // bodyD.text(response.data.EngineModel);
       // engineD.text(response.EngineModel);
       cacheD.text(response.cacheTimeLimit);
       conditionD.text(response.condition);
-      dataD.text(response.data.BodyClass);
       modelD.text(response.modelName);
       msgD.text(response.msg);
       regionD.text(response.regionName); 
+      dataD.text(response.data.BodyClass);
       dataD.append(response.data.AirBagLocCurtain + "/");
       dataD.append(response.data.DriveType + "/");
       dataD.append(response.data.FuelTypePrimary + "/");
@@ -108,6 +108,7 @@ $(document).ready(function () {
       dataD.append(response.data.ValveTrainDesign + "/");
       dataD.append(response.data.VehicleType + "/");
       dataD.append(response.data.TPMS + "/");
+      // allD.text(response.data);
       submitBtn.attr("disabled", false);
     });
   }
