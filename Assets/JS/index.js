@@ -70,13 +70,10 @@ $(document).ready(function () {
       // // console.log(response.brandName);
       // // console.log(response.data);
       // // console.log(response);
-        // for(var i = 0; i < response.length; i++){
-        // console.log(response[i]);
-        // };
 
       brandD.text(response.brandName);
-      dataD.text(response.data);
-      recallD.text(response.RecallInfo);
+      dataD.text(response.data.BodyClass);
+      recallD.text(response.data.EngineModel);
     });
   }
 
