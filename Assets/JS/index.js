@@ -166,7 +166,6 @@ $(document).ready(function () {
       dataI.append(response.data[28].modelName + "/");
       dataI.append(response.data[29].modelName + "/");
       dataI.append(response.data[30].modelName + "/");
-      
       lookupBtn.attr("disabled", false);
     });
   }
