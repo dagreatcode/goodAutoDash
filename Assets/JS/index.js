@@ -2,12 +2,18 @@ $(document).ready(function () {
   console.log("The document is ready!");
 
   var searchTerm;
+  var searchTerm2;
   
   var codeD = $("#code-display");
   var causeD =  $("#cause-display");
   var definitionD = $("#definition-display");
   var searchBtn =  $("#search-button");
   var inputC =  $("#input-control");
+  var submitBtn =  $("#submit-button");
+  var inputC2 =  $("#input-control2");
+  var brandD = $("#brand-display");
+  var dataD = $("#data-display");
+  var recallD = $("#recall-display");
   // var odbCode = "P0001";
 
 
@@ -47,9 +53,39 @@ $(document).ready(function () {
     });
   }
 
+  function apiVin(){
+    const settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://cis-vin-decoder.p.rapidapi.com/vinDecode?vin=" +vinPin,
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
+        "x-rapidapi-host": "cis-vin-decoder.p.rapidapi.com"
+      }
+    };
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      // // console.log(response.brandName);
+      // // console.log(response.data);
+      // // console.log(response);
+        // for(var i = 0; i < response.length; i++){
+        // console.log(response[i]);
+        // };
+
+      brandD.text(response.brandName);
+      dataD.text(response.data);
+      recallD.text(response.RecallInfo);
+    });
+  }
+
+
+
+
   $("#search-form").on("submit", function(event){
     event.preventDefault();
-    searchBtn.attr("disabled", true);
+    submitBtn.attr("disabled", true);
     searchTerm = inputC.val();
     odbCode = inputC.val();
     if (searchTerm){
@@ -59,6 +95,18 @@ $(document).ready(function () {
     }
   });
 
+
+  $("#search-form2").on("submit", function(event){
+    event.preventDefault();
+    searchBtn.attr("disabled", true);
+    searchTerm2 = inputC2.val();
+    vinPin = inputC2.val();
+    if (searchTerm2){
+      apiVin();
+    }else{
+      alert("You Must Type something.")
+    }
+  });
 
 
 //   function displayResultsToPage(array){

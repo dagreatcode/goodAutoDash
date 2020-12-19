@@ -34,63 +34,32 @@
   </head>
   <body>
     <h1>GoodAuto Dash</h1>
-    <form class="row gx-3 gy-2 align-items-center" id="search-form">
-      <div class="col-sm-3">
-        <label class="visually-hidden" for="specificSizeInputName"
-          >ODB Code</label
+    <form class="row gx-3 gy-2 align-items-center" id="search-form2">
+      <div class="col-sm-4">
+        <label class="visually-hidden" for="specificSizeInputName2"
+          >VIN PIN</label
         >
         <input
           type="text"
-          class="form-control"
-          id="input-control"
-          placeholder="Type ODB Code Here: P0001"
+          class="form-control2"
+          id="input-control2"
+          placeholder="Type VIN Code Here:"
         />
-      </div>
-
-      <div class="col-2">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="autoSizingCheck2"
-          />
-          <label class="form-check-label" for="autoSizingCheck2"> Code </label>
+        <div id="vinHelp" class="form-text">
+          Type a VIN Code like this one Here: 5J6RM4H50GL105806
         </div>
       </div>
-      <div class="col-2">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="autoSizingCheck2"
-          />
-          <label class="form-check-label" for="autoSizingCheck2"> Cause </label>
-        </div>
-      </div>
-      <div class="col-2">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="autoSizingCheck2"
-          />
-          <label class="form-check-label" for="autoSizingCheck2">
-            Definition
-          </label>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <button type="submit" class="btn btn-primary" id="search-button">
+      <div class="col-8">
+        <button type="submit2" class="btn btn-primary" id="submit-button">
           Submit
         </button>
       </div>
     </form>
     <div class="container">
       <div class="row">
-        <div class="col-9" id="code-display">Code:</div>
-        <div class="col-4" id="cause-display">Cause:</div>
-        <div class="col-6" id="definition-display">Definition:</div>
+        <div class="col-9" id="brand-display">Code:</div>
+        <div class="col-4" id="data-display">Cause:</div>
+        <div class="col-6" id="recall-display">Definition:</div>
       </div>
     </div>
 
