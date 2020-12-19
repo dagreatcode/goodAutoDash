@@ -111,13 +111,37 @@ $(document).ready(function () {
       },
     };
     $.ajax(settings).done(function (response) {
-      console.log(response);
+      console.log(response.data[0].modelName);
       brandN.text(response.brandName);
       cacheT.text(response.cacheTimeLimit);
       conditionN.text(response.condition);
-      dataI.text(response.data.BodyClass);
       modelN.text(response.modelName);
       regionD.text(response.regionName);
+      // for (var i = 0; i < response.length; i++){
+      //     console.log(response[i]);
+      // };
+      dataI.text(response.data[0].modelName + "/");
+      dataI.append(response.data[1].modelName + "/");
+      dataI.append(response.data[2].modelName + "/");
+      dataI.append(response.data[3].modelName + "/");
+      dataI.append(response.data[4].modelName + "/");
+      dataI.append(response.data[5].modelName + "/");
+      dataI.append(response.data[6].modelName + "/");
+      dataI.append(response.data[7].modelName + "/");
+      dataI.append(response.data[8].modelName + "/");
+      dataI.append(response.data[9].modelName + "/");
+      dataI.append(response.data[10].modelName + "/");
+      dataI.append(response.data[11].modelName + "/");
+      dataI.append(response.data[12].modelName + "/");
+      dataI.append(response.data[13].modelName + "/");
+      dataI.append(response.data[14].modelName + "/");
+      dataI.append(response.data[15].modelName + "/");
+      dataI.append(response.data[16].modelName + "/");
+      dataI.append(response.data[17].modelName + "/");
+      dataI.append(response.data[18].modelName + "/");
+      dataI.append(response.data[19].modelName + "/");
+      dataI.append(response.data[20].modelName + "/");
+      
       lookupBtn.attr("disabled", false);
     });
   }
