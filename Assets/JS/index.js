@@ -81,7 +81,7 @@ $(document).ready(function () {
     };
 
     $.ajax(settings).done(function (response) {
-      console.log(response);
+      console.log(response.data.AirBagLocCurtain);
       // // console.log(response.brandName);
       // // console.log(response.data);
       // // console.log(response);
@@ -93,7 +93,21 @@ $(document).ready(function () {
       dataD.text(response.data.BodyClass);
       modelD.text(response.modelName);
       msgD.text(response.msg);
-      regionD.text(response.regionName);
+      regionD.text(response.regionName); 
+      dataD.append(response.data.AirBagLocCurtain + "/");
+      dataD.append(response.data.DriveType + "/");
+      dataD.append(response.data.FuelTypePrimary + "/");
+      dataD.append(response.data.Manufacturer + "/");
+      dataD.append(response.data.ModelYear + "/");
+      dataD.append(response.data.PlantCity + "/");
+      dataD.append(response.data.PlantCountry + "/");
+      dataD.append(response.data.Series + "/");
+      dataD.append(response.data.TransmissionStyle + "/");
+      dataD.append(response.data.SeatBeltsAll + "/");
+      dataD.append(response.data.VIN + "/");
+      dataD.append(response.data.ValveTrainDesign + "/");
+      dataD.append(response.data.VehicleType + "/");
+      dataD.append(response.data.TPMS + "/");
       submitBtn.attr("disabled", false);
     });
   }
@@ -111,7 +125,7 @@ $(document).ready(function () {
       },
     };
     $.ajax(settings).done(function (response) {
-      console.log(response.data[0].modelName);
+      console.log(response);
       brandN.text(response.brandName);
       cacheT.text(response.cacheTimeLimit);
       conditionN.text(response.condition);
