@@ -5,17 +5,27 @@ $(document).ready(function () {
   var submitTerm;
   var lookupTerm;
 
+  var inputC = $("#input-control");
   var codeD = $("#code-display");
   var causeD = $("#cause-display");
   var definitionD = $("#definition-display");
   var searchBtn = $("#search-button");
-  var inputC = $("#input-control");
-  var submitBtn = $("#submit-button");
+  
+ 
   var inputC2 = $("#input-control2");
   var brandD = $("#brand-display");
+  // var bodyD = $("#body-class");
+  // var engineD = $("#engine-model");
+  var cacheD = $("#cache-time");
+  var conditionD = $("#condition-display");
   var dataD = $("#data-display");
-  var recallD = $("#recall-display");
-  // var odbCode = "P0001";
+  var modelD = $("#model-name");
+  var msgD = $("#msg-display");
+  var regionD = $("#region-name");
+  var submitBtn = $("#submit-button");
+
+  // var inputC3 = $("#input-control3");
+  // var lookupBtn = $("#lookup-button");
 
   function apiCall() {
     console.log("api Call");
@@ -67,10 +77,16 @@ $(document).ready(function () {
       // // console.log(response.brandName);
       // // console.log(response.data);
       // // console.log(response);
-
       brandD.text(response.brandName);
+      // bodyD.text(response.data.EngineModel);
+      // engineD.text(response.EngineModel);
+      cacheD.text(response.cacheTimeLimit);
+      conditionD.text(response.condition);
       dataD.text(response.data.BodyClass);
-      recallD.text(response.data.EngineModel);
+      modelD.text(response.modelName);
+      msgD.text(response.msg);
+      regionD.text(response.regionName);
+      submitBtn.attr("disabled", false);
     });
   }
 
@@ -118,7 +134,7 @@ $(document).ready(function () {
   $("#lookup-form3").on("submit", function(event){
     event.preventDefault();
     lookupBtn.attr("disabled", true);
-    lookupTerm = inputC2.val();
+    lookupTerm = inputC3.val();
     vinPin = inputC3.val();
     if (lookupTerm){
       apiAutoInfo();
