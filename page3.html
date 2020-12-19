@@ -58,7 +58,44 @@
       </div>
     </nav>
     <h1>GoodAuto Dash</h1>
-    <h2>Car Info Page Coming Soon</h2>
+    <h2>Car Info</h2>
+    <form class="row gx-3 gy-2 align-items-center" id="lookup-form3">
+      <div class="col-sm-4">
+        <label class="visually-hidden" for="specificSizeInputName2"
+          >Car Model</label
+        >
+        <input
+          type="text"
+          class="form-control2"
+          id="input-control3"
+          placeholder="Car Model"
+        />
+        <div id="carModel" class="form-text">
+          Car Model like this one Here: Ford
+        </div>
+      </div>
+      <div class="col-8">
+        <button type="submit" class="btn btn-primary" id="lookup-button">
+          Submit
+        </button>
+      </div>
+    </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-9" id="brand-name">Brand:</div>
+        <div class="col-4" id="model-name">Model:</div>
+        <div class="col-6" id="region-name">Region:
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-9" id="condition-name">Condition:</div>
+        <div class="col-4" id="cache-time">cache:</div>
+        <div class="col-6" id="data-info">Data Info:
+          <div id="allData">All Data info</div>
+        </div>
+        
+      </div>
+    </div>
 
     <script src="./Assets/JS/index.js" async defer></script>
   </body>

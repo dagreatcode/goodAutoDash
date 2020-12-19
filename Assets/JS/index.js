@@ -24,8 +24,16 @@ $(document).ready(function () {
   var regionD = $("#region-name");
   var submitBtn = $("#submit-button");
 
-  // var inputC3 = $("#input-control3");
-  // var lookupBtn = $("#lookup-button");
+  var inputC3 = $("#input-control3");
+  var brandN = $("#brand-name");
+  var modelN = $("#model-name");
+  var regionN = $("#region-name");
+  var conditionN = $("#condition-name");
+  var cacheT = $("#cache-time");
+  var dataI = $("#data-info");
+  var lookupBtn = $("#lookup-button");
+
+  
 
   function apiCall() {
     console.log("api Call");
@@ -95,7 +103,7 @@ $(document).ready(function () {
       async: true,
       crossDomain: true,
       url:
-        "https://cis-automotive.p.rapidapi.com/getInactiveModels?brandName=Ford",
+        "https://cis-automotive.p.rapidapi.com/getInactiveModels?brandName=" + carModelName,
       method: "GET",
       headers: {
         "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
@@ -104,6 +112,13 @@ $(document).ready(function () {
     };
     $.ajax(settings).done(function (response) {
       console.log(response);
+      brandN.text(response.brandName);
+      cacheT.text(response.cacheTimeLimit);
+      conditionN.text(response.condition);
+      dataI.text(response.data.BodyClass);
+      modelN.text(response.modelName);
+      regionD.text(response.regionName);
+      lookupBtn.attr("disabled", false);
     });
   }
 
@@ -135,7 +150,7 @@ $(document).ready(function () {
     event.preventDefault();
     lookupBtn.attr("disabled", true);
     lookupTerm = inputC3.val();
-    vinPin = inputC3.val();
+    carModelName = inputC3.val();
     if (lookupTerm){
       apiAutoInfo();
     }else{
