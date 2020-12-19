@@ -141,6 +141,16 @@ $(document).ready(function () {
       dataI.append(response.data[18].modelName + "/");
       dataI.append(response.data[19].modelName + "/");
       dataI.append(response.data[20].modelName + "/");
+      dataI.append(response.data[21].modelName + "/");
+      dataI.append(response.data[22].modelName + "/");
+      dataI.append(response.data[23].modelName + "/");
+      dataI.append(response.data[24].modelName + "/");
+      dataI.append(response.data[25].modelName + "/");
+      dataI.append(response.data[26].modelName + "/");
+      dataI.append(response.data[27].modelName + "/");
+      dataI.append(response.data[28].modelName + "/");
+      dataI.append(response.data[29].modelName + "/");
+      dataI.append(response.data[30].modelName + "/");
       
       lookupBtn.attr("disabled", false);
     });
