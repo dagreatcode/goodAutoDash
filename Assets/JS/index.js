@@ -47,6 +47,24 @@ $(document).ready(function () {
     });
   }
 
+  function apiVin(){
+    const settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://cis-vin-decoder.p.rapidapi.com/vinDecode?vin=5J6RM4H50GL105806",
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
+        "x-rapidapi-host": "cis-vin-decoder.p.rapidapi.com"
+      }
+    };
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+  }
+
+
   $("#search-form").on("submit", function(event){
     event.preventDefault();
     searchBtn.attr("disabled", true);
@@ -58,6 +76,18 @@ $(document).ready(function () {
       alert("I am still Working on this... Vincent.")
     }
   });
+
+  // $("#search-form").on("submit", function(event){
+  //   event.preventDefault();
+  //   searchBtn.attr("disabled", true);
+  //   searchTerm = inputC.val();
+  //   odbCode = inputC.val();
+  //   if (searchTerm){
+  //     apiCall();
+  //   }else{
+  //     alert("I am still Working on this... Vincent.")
+  //   }
+  // });
 
 
 
