@@ -145,7 +145,7 @@ $(document).ready(function () {
     const settings = {
       "async": true,
       "crossDomain": true,
-      "url": "https://car-stockpile.p.rapidapi.com/models?make=Audi",
+      "url": "https://car-stockpile.p.rapidapi.com/models?make=" + carModelName,
       "method": "GET",
       "headers": {
         "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
