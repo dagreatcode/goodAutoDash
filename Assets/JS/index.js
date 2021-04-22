@@ -10,8 +10,7 @@ $(document).ready(function () {
   var causeD = $("#cause-display");
   var definitionD = $("#definition-display");
   var searchBtn = $("#search-button");
-  
- 
+
   var inputC2 = $("#input-control2");
   var brandD = $("#brand-display");
   // var bodyD = $("#body-class");
@@ -34,8 +33,6 @@ $(document).ready(function () {
   var dataI = $("#data-info");
   var lookupBtn = $("#lookup-button");
 
-  
-
   function apiCall() {
     console.log("api Call");
     const settings = {
@@ -49,16 +46,16 @@ $(document).ready(function () {
       },
     };
     $.ajax(settings).then(function (response) {
-      // console.log(response);
+      console.log(response);
       // for(var i = 0; i < response.length; i++){
       //     console.log(response[i]);
       // };
-      console.log(response.code);
-      console.log(response.cause);
-      console.log(response.definition);
-
       codeD.text(response.code);
-      causeD.text(response.cause );
+      for (var i = 0; i < response.cause.length; i++) {
+        console.log(response.cause)
+        causeD.text(response.cause);
+      }
+      // causeD.text(response.cause);
       definitionD.text(response.definition);
       searchBtn.attr("disabled", false);
 
@@ -82,6 +79,7 @@ $(document).ready(function () {
     };
 
     $.ajax(settings).done(function (response) {
+      console.log(response);
       // // console.log(response.brandName);
       console.log(response.data);
       // // console.log(response);
@@ -93,34 +91,53 @@ $(document).ready(function () {
       conditionD.text(response.condition);
       modelD.text(response.modelName);
       msgD.text(response.msg);
-      regionD.text(response.regionName); 
+      regionD.text(response.regionName);
       dataD.text(response.data.BodyClass);
-      dataD.append(response.data.AirBagLocCurtain + "/");
-      dataD.append(response.data.DriveType + "/");
-      dataD.append(response.data.FuelTypePrimary + "/");
-      dataD.append(response.data.Manufacturer + "/");
-      dataD.append(response.data.ModelYear + "/");
-      dataD.append(response.data.PlantCity + "/");
-      dataD.append(response.data.PlantCountry + "/");
-      dataD.append(response.data.Series + "/");
-      dataD.append(response.data.TransmissionStyle + "/");
-      dataD.append(response.data.SeatBeltsAll + "/");
-      dataD.append(response.data.VIN + "/");
-      dataD.append(response.data.ValveTrainDesign + "/");
-      dataD.append(response.data.VehicleType + "/");
-      dataD.append(response.data.TPMS + "/");
-      dataD.append(response.data.RecallInfo[0].Manufacturer);
-      dataD.append(response.data.RecallInfo[0].NHTSACampaignNumber);
-      dataD.append(response.data.RecallInfo[0].ReportReceivedDate);
-      dataD.append(response.data.RecallInfo[0].Summary);
-      dataD.append(response.data.RecallInfo[0].Conequence);
-      dataD.append(response.data.RecallInfo[0].Remedy);
-      dataD.append(response.data.RecallInfo[0].Notes);
-      dataD.append(response.data.RecallInfo[0].ModelYear);
-      dataD.append(response.data.RecallInfo[0].Make);
-      dataD.append(response.data.RecallInfo[0].Model);
+      dataD.append(" -AirBagLocCurtain: " + response.data.AirBagLocCurtain + "/");
+      dataD.append(" -AirBagLocFront: " + response.data.AirBagLocFront + "/");
+      dataD.append(" -AirBagLocSide: "+response.data.AirBagLocSide + "/");
+      dataD.append(" -BodyClass: "+response.data.BodyClass + "/");
+      dataD.append(" -DisplacementCC: "+response.data.DisplacementCC + "/");
+      dataD.append(" -DisplacementCI: "+response.data.DisplacementCI + "/");
+      dataD.append(" -Doors: "+response.data.Doors + "/");
+      dataD.append(" -DriveType: "+response.data.DriveType + "/");
+      dataD.append(" -EngineConfiguration: "+response.data.EngineConfiguration + "/");
+      dataD.append(" -EngineCylinders: "+response.data.EngineCylinders + "/");
+      dataD.append(" -EngineHP: "+response.data.EngineHP + "/");
+      dataD.append(" -EngineKW: "+response.data.EngineKW + "/");
+      dataD.append(" -EngineModel: "+response.data.EngineModel + "/");
+      dataD.append(" -FuelTypePrimary: "+response.data.FuelTypePrimary + "/");
+      dataD.append(" -GVWR: "+response.data.GVWR + "/");
+      dataD.append(" -Make: "+response.data.Make + "/");
+      dataD.append(" -MakeID: "+response.data.MakeID + "/");
+      dataD.append(" -Manufacturer: "+response.data.Manufacturer + "/");
+      dataD.append(" -ManufacturerId: "+response.data.ManufacturerId + "/");
+      dataD.append(" -Model: "+response.data.Model + "/");
+      dataD.append(" -ModelID: "+response.data.ModelID + "/");
+      dataD.append(" -ModelYear: "+response.data.ModelYear + "/");
+      dataD.append(" -OtherRestraintSystemInfo: "+response.data.OtherRestraintSystemInfo + "/");
+      dataD.append(" -PlantCity: "+response.data.PlantCity + "/");
+      dataD.append(" -PlantCountry: "+response.data.PlantCountry + "/");
+      dataD.append(" -PlantState: "+response.data.PlantState + "/");
+      dataD.append(" -Series: "+response.data.Series + "/");
+      dataD.append(" -TransmissionStyle: "+response.data.TransmissionStyle + "/");
+      dataD.append(" -SeatBeltsAll: "+response.data.SeatBeltsAll + "/");
+      dataD.append(" -VIN: "+response.data.VIN + "/");
+      dataD.append(" -ValveTrainDesign: "+response.data.ValveTrainDesign + "/");
+      dataD.append(" -VehicleType: "+response.data.VehicleType + "/");
+      dataD.append(" -TPMS: "+response.data.TPMS + "/");
+      dataD.append(" -Manufacturer: "+response.data.RecallInfo[0].Manufacturer + "/");
+      dataD.append(" -NHTSACampaignNumber: "+response.data.RecallInfo[0].NHTSACampaignNumber + "/");
+      dataD.append(" -ReportReceivedDate: "+response.data.RecallInfo[0].ReportReceivedDate + "/");
+      dataD.append(" -Summary: "+response.data.RecallInfo[0].Summary + "/");
+      dataD.append(" -Conequence: "+response.data.RecallInfo[0].Conequence + "/");
+      dataD.append(" -Remedy: "+response.data.RecallInfo[0].Remedy + "/");
+      dataD.append(" -Notes: "+response.data.RecallInfo[0].Notes + "/");
+      dataD.append(" -ModelYear:"+response.data.RecallInfo[0].ModelYear + "/");
+      dataD.append(" -Make:"+response.data.RecallInfo[0].Make + "/");
+      dataD.append(" -Model: "+response.data.RecallInfo[0].Model + "/");
       // allD.text(response.data);
-      submitBtn.attr("disabled", false);
+      submitBtn.attr("d-isabled", false);
     });
   }
 
@@ -128,11 +145,11 @@ $(document).ready(function () {
     const settings = {
       async: true,
       crossDomain: true,
-      "url": "https://car-stockpile.p.rapidapi.com/models?make=" + carModelName,
-      "method": "GET",
-      "headers": {
+      url: "https://car-stockpile.p.rapidapi.com/models?make=" + carModelName,
+      method: "GET",
+      headers: {
         "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
-        "x-rapidapi-host": "car-stockpile.p.rapidapi.com"
+        "x-rapidapi-host": "car-stockpile.p.rapidapi.com",
       },
     };
     $.ajax(settings).done(function (response) {
@@ -142,40 +159,6 @@ $(document).ready(function () {
       conditionN.text(response.condition);
       modelN.text(response.modelName);
       regionD.text(response.regionName);
-      // for (var i = 0; i < response.length; i++){
-      //     console.log(response[i]);
-      // };
-      // dataI.text(response.data[0].modelName + "/");
-      // dataI.append(response.data[1].modelName + "/");
-      // dataI.append(response.data[2].modelName + "/");
-      // dataI.append(response.data[3].modelName + "/");
-      // dataI.append(response.data[4].modelName + "/");
-      // dataI.append(response.data[5].modelName + "/");
-      // dataI.append(response.data[6].modelName + "/");
-      // dataI.append(response.data[7].modelName + "/");
-      // dataI.append(response.data[8].modelName + "/");
-      // dataI.append(response.data[9].modelName + "/");
-      // dataI.append(response.data[10].modelName + "/");
-      // dataI.append(response.data[11].modelName + "/");
-      // dataI.append(response.data[12].modelName + "/");
-      // dataI.append(response.data[13].modelName + "/");
-      // dataI.append(response.data[14].modelName + "/");
-      // dataI.append(response.data[15].modelName + "/");
-      // dataI.append(response.data[16].modelName + "/");
-      // dataI.append(response.data[17].modelName + "/");
-      // dataI.append(response.data[18].modelName + "/");
-      // dataI.append(response.data[19].modelName + "/");
-      // dataI.append(response.data[20].modelName + "/");
-      // dataI.append(response.data[21].modelName + "/");
-      // dataI.append(response.data[22].modelName + "/");
-      // dataI.append(response.data[23].modelName + "/");
-      // dataI.append(response.data[24].modelName + "/");
-      // dataI.append(response.data[25].modelName + "/");
-      // dataI.append(response.data[26].modelName + "/");
-      // dataI.append(response.data[27].modelName + "/");
-      // dataI.append(response.data[28].modelName + "/");
-      // dataI.append(response.data[29].modelName + "/");
-      // dataI.append(response.data[30].modelName + "/");
       lookupBtn.attr("disabled", false);
     });
   }
@@ -204,15 +187,15 @@ $(document).ready(function () {
     }
   });
 
-  $("#lookup-form3").on("submit", function(event){
+  $("#lookup-form3").on("submit", function (event) {
     event.preventDefault();
     lookupBtn.attr("disabled", true);
     lookupTerm = inputC3.val();
     carModelName = inputC3.val();
-    if (lookupTerm){
+    if (lookupTerm) {
       apiAutoInfo();
-    }else{
-      alert("You Must Type something.")
+    } else {
+      alert("You Must Type something.");
     }
   });
 
@@ -220,15 +203,3 @@ $(document).ready(function () {
   //     $("#display").append(array);
   //   }
 });
-
-//////////////////////////////////////////////////////////////////
-// $.ajax({                                                     //
-//     url: "https://car-code.p.rapidapi.com/obd2/P0001",       //
-//     method: "GET",                                           //
-// }).then(function(response){                                  //
-//     console.log(response);                                   //
-// }).fail(function(err){                                       //
-//     console.log("Something went wrong with the api call");   //
-//     console.log(err);                                        //
-// });                                                          //
-//////////////////////////////////////////////////////////////////
