@@ -143,22 +143,19 @@ $(document).ready(function () {
 
   function apiAutoInfo() {
     const settings = {
-      async: true,
-      crossDomain: true,
-      url: "https://car-stockpile.p.rapidapi.com/models?make=" + carModelName,
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": config.key,
-        "x-rapidapi-host": config3.host,
+      "async": true,
+      "crossDomain": true,
+      "url": "https://car-stockpile.p.rapidapi.com/models?make=Audi",
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
+        "x-rapidapi-host": "car-stockpile.p.rapidapi.com"
       },
     };
     $.ajax(settings).done(function (response) {
       console.log(response);
       brandN.text(response.make);
       cacheT.text(response.models);
-      conditionN.text(response.condition);
-      modelN.text(response.modelName);
-      regionD.text(response.regionName);
       lookupBtn.attr("disabled", false);
     });
   }
