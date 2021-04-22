@@ -117,18 +117,17 @@ $(document).ready(function () {
     const settings = {
       async: true,
       crossDomain: true,
-      url:
-        "https://cis-automotive.p.rapidapi.com/getInactiveModels?brandName=" + carModelName,
-      method: "GET",
-      headers: {
+      "url": "https://car-stockpile.p.rapidapi.com/models?make=" + carModelName,
+      "method": "GET",
+      "headers": {
         "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
-        "x-rapidapi-host": "cis-automotive.p.rapidapi.com",
+        "x-rapidapi-host": "car-stockpile.p.rapidapi.com"
       },
     };
     $.ajax(settings).done(function (response) {
       console.log(response);
-      brandN.text(response.brandName);
-      cacheT.text(response.cacheTimeLimit);
+      brandN.text(response.make);
+      cacheT.text(response.models);
       conditionN.text(response.condition);
       modelN.text(response.modelName);
       regionD.text(response.regionName);
