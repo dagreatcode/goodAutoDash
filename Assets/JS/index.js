@@ -44,8 +44,8 @@ $(document).ready(function () {
       url: "https://car-code.p.rapidapi.com/obd2/" + odbCode,
       method: "GET",
       headers: {
-        "x-rapidapi-key": config.key,
-        "x-rapidapi-host": config.host,
+        "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
+        "x-rapidapi-host": "car-code.p.rapidapi.com",
       },
     };
     $.ajax(settings).then(function (response) {
@@ -76,8 +76,8 @@ $(document).ready(function () {
       url: "https://cis-vin-decoder.p.rapidapi.com/vinDecode?vin=" + vinPin,
       method: "GET",
       headers: {
-        "x-rapidapi-key": config.key,
-        "x-rapidapi-host": config2.host,
+        "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
+        "x-rapidapi-host": "cis-vin-decoder.p.rapidapi.com",
       },
     };
 
@@ -121,8 +121,8 @@ $(document).ready(function () {
         "https://cis-automotive.p.rapidapi.com/getInactiveModels?brandName=" + carModelName,
       method: "GET",
       headers: {
-        "x-rapidapi-key": config.key,
-        "x-rapidapi-host": config3.host,
+        "x-rapidapi-key": "d45bb63eb5mshebc4e0e524334b5p10227ejsn3cb49f17bfa1",
+        "x-rapidapi-host": "cis-automotive.p.rapidapi.com",
       },
     };
     $.ajax(settings).done(function (response) {
