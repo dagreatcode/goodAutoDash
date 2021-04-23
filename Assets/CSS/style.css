@@ -3,6 +3,14 @@ h1 {
     margin: 0;
     margin-bottom: 20px;
     font-size: 28px;
-    color: black;
+    color: #f9f9f9;
     text-align: center;
 }
+body {
+    background-image: url("../img/Car.png");
+    background-color: rgb(199, 197, 197);
+  }
+
+container {
+    background-color: hsl(0, 100%, 58%);
+  }

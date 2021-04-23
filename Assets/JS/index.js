@@ -12,9 +12,7 @@ $(document).ready(function () {
   var searchBtn = $("#search-button");
 
   var inputC2 = $("#input-control2");
-  var brandD = $("#brand-display");
-  // var bodyD = $("#body-class");
-  // var engineD = $("#engine-model");
+  var brandN = $("#brand-name");
   var cacheD = $("#cache-time");
   var conditionD = $("#condition-display");
   var dataD = $("#data-display");
@@ -83,11 +81,10 @@ $(document).ready(function () {
       // // console.log(response.brandName);
       console.log(response.data);
       // // console.log(response);
-      brandD.text(response.brandName);
+      brandN.text(response.brandName);
       // bodyD.text(response.data.EngineModel);
       // engineD.text(response.EngineModel);
       cacheD.text(response.cacheTimeLimit);
-      cacheD.text(response.data.RecallInfo[0].Manufacturer);
       conditionD.text(response.condition);
       modelD.text(response.modelName);
       msgD.text(response.msg);
